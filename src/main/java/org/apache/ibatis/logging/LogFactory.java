@@ -30,6 +30,9 @@ public final class LogFactory {
 
   private static Constructor<? extends Log> logConstructor;
 
+  /**
+   * 日志使用优先级：slf4j  commonslogging  log4j2 log4j  jdklog  nolog
+   */
   static {
     tryImplementation(LogFactory::useSlf4jLogging);
     tryImplementation(LogFactory::useCommonsLogging);

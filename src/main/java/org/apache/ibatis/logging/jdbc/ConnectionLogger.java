@@ -68,6 +68,8 @@ public final class ConnectionLogger extends BaseJdbcLogger implements Invocation
   }
 
   /**
+   * 生成一个Connection的代理，用于添加日志功能。有点象装饰器模式。
+   *
    * Creates a logging version of a connection.
    *
    * @param conn
