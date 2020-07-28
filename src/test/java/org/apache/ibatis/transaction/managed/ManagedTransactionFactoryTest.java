@@ -48,6 +48,10 @@ class ManagedTransactionFactoryTest extends BaseDataTest {
     verify(conn).close();
   }
 
+  /**
+   * 设置closeConnection=false，则不会调用conn.close（），也就是关闭不了数据库连接
+   * @throws Exception
+   */
   @Test
   void shouldEnsureThatCallsToManagedTransactionAPIDoNotForwardToManagedConnectionsAndDoesNotCloseConnection()
       throws Exception {
