@@ -20,6 +20,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.ibatis.BaseDataTest;
+import org.apache.ibatis.cache.decorators.BlockingCache;
+import org.apache.ibatis.cache.impl.PerpetualCache;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -76,4 +78,12 @@ class BlockingCacheTest {
     }
   }
 
+  @Test
+  public void testPut() {
+    BlockingCache blockingCache = new BlockingCache(new PerpetualCache("1"));
+    Assertions.assertEquals("1",blockingCache.getId());
+
+    blockingCache.putObject("user_id_334832", "Amy");// 会报错,blockingCache该怎么用
+
+  }
 }

@@ -20,6 +20,7 @@ import java.net.URL;
 
 /**
  * A class to wrap access to multiple class loaders making them work as one
+ * ClassLoaderWrapper会按照指定的顺序依次检测其中封装的ClassLoader对象，并从中选取第一个可用的ClassLoader完成相关功能。
  *
  * @author Clinton Begin
  */

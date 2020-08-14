@@ -48,8 +48,8 @@ import org.apache.ibatis.logging.LogFactory;
  *
  * <pre>
  * ResolverUtil&lt;ActionBean&gt; resolver = new ResolverUtil&lt;ActionBean&gt;();
- * resolver.findImplementation(ActionBean.class, pkg1, pkg2);
- * resolver.find(new CustomTest(), pkg1);
+ * resolver.findImplementation(ActionBean.class, pkg1, pkg2); // 在pkg1,pkg2 这2个包下面查找实现了ActionBean这个接口的类
+ * resolver.find(new CustomTest(), pkg1); // 在pkg1下查找符合customTest条件的类
  * resolver.find(new CustomTest(), pkg2);
  * Collection&lt;ActionBean&gt; beans = resolver.getClasses();
  * </pre>
