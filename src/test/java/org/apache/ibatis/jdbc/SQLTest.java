@@ -18,6 +18,7 @@ package org.apache.ibatis.jdbc;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.apache.ibatis.domain.blog.Post;
 import org.junit.jupiter.api.Test;
 
 class SQLTest {
@@ -54,6 +55,12 @@ class SQLTest {
         "SELECT id, name\n" +
         "FROM PERSON A\n" +
         "WHERE (name like ? AND id = ?)", sql);
+
+    Post post = new Post() {{
+      int i = 0;
+    }};
+
+    System.out.println(post);
   }
 
   @Test

@@ -359,6 +359,11 @@ public class XMLConfigBuilder extends BaseBuilder {
     }
   }
 
+  /*
+ <mappers>
+  <package name="org.mybatis.builder"/>
+</mappers>
+   */
   private void mapperElement(XNode parent) throws Exception {
     if (parent != null) {
       for (XNode child : parent.getChildren()) {

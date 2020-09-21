@@ -19,8 +19,9 @@ package org.apache.ibatis.session;
  * @author Clinton Begin
  */
 public class RowBounds {
-
+  /* 默认offset是0**/
   public static final int NO_ROW_OFFSET = 0;
+  /* 默认Limit是int的最大值，因此它使用的是逻辑分页**/
   public static final int NO_ROW_LIMIT = Integer.MAX_VALUE;
   public static final RowBounds DEFAULT = new RowBounds();
 

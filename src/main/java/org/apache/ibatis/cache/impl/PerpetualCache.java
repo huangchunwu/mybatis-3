@@ -28,6 +28,8 @@ public class PerpetualCache implements Cache {
 
   private final String id;
 
+  // 为什么这里不使用concurrentHashmap，因为二级缓存不常用，为了性能考略，使用常用的map。并且
+  // 二级缓存这里，使用了装饰器，synchronizedCache
   private final Map<Object, Object> cache = new HashMap<>();
 
   public PerpetualCache(String id) {

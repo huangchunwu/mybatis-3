@@ -21,7 +21,9 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+<mappers>
 
+</mappers>
 
 </configuration>
 

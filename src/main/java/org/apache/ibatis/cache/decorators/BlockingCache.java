@@ -37,6 +37,7 @@ public class BlockingCache implements Cache {
 
   private long timeout;
   private final Cache delegate;
+  // 锁力度，锁定在key的value，避免大锁。
   private final ConcurrentHashMap<Object, ReentrantLock> locks;
 
   public BlockingCache(Cache delegate) {
@@ -65,7 +66,7 @@ public class BlockingCache implements Cache {
 
   @Override
   public Object getObject(Object key) {
-    acquireLock(key);
+    acquireLock(key);//根据key获得锁对象，如果成功加锁，否则堵塞一段时间重试
     Object value = delegate.getObject(key);
     if (value != null) {
       releaseLock(key);

@@ -650,6 +650,9 @@ class SqlSessionTest extends BaseDataTest {
     }
   }
 
+  /**
+   * RowBounds分页
+   */
   @Test
   void shouldLimitResultsUsingMapperClass() {
     try (SqlSession session = sqlMapper.openSession()) {
