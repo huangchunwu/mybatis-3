@@ -112,4 +112,17 @@ class GenericTokenParserTest {
     });
   }
 
+  @Test
+  public void testExplainSql() {
+    String sql  = "select * from user where id=${id} and name = ${name}  and sex = #{sex}";
+    GenericTokenParser genericTokenParser = new GenericTokenParser("${", "}", new TokenHandler() {
+      @Override
+      public String handleToken(String content) {
+        System.out.println(content);
+        return null;
+      }
+    });
+    genericTokenParser.parse(sql);
+  }
+
 }

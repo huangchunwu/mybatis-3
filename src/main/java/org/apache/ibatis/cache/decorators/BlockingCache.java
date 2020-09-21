@@ -30,6 +30,8 @@ import org.apache.ibatis.cache.CacheException;
  * It sets a lock over a cache key when the element is not found in cache.
  * This way, other threads will wait until this element is filled instead of hitting the database.
  *
+ * BlockingCache是阻塞版本的缓存装饰器，它会保证只有一个线程到数据库中查找指定key对应的数据
+ *
  * @author Eduardo Macarron
  *
  */
@@ -55,6 +57,12 @@ public class BlockingCache implements Cache {
     return delegate.getSize();
   }
 
+  /**
+   * 这里没有加锁,添加缓存不加锁??? 最后释放锁啥意思
+   * @param key
+   *          Can be any object but usually it is a {@link CacheKey}
+   * @param value
+   */
   @Override
   public void putObject(Object key, Object value) {
     try {

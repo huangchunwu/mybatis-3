@@ -45,6 +45,9 @@ class ResolverUtilTest {
     assertEquals(new ResolverUtil<>().getClasses().size(), 0);
   }
 
+  /**
+   * 默认情况下，使用的是当前线程上下文绑定的ClassLoader
+   */
   @Test
   void getClassLoader() {
     assertEquals(new ResolverUtil<>().getClassLoader(), currentContextClassLoader);
@@ -61,6 +64,12 @@ class ResolverUtilTest {
     assertNotEquals(resolverUtil.getClassLoader(), currentContextClassLoader);
   }
 
+  /**
+   * findImplementations（）方法会创建IsA对象作为检测条件，
+   * findAnnotated（）方法会创建AnnotatedWith对象作为检测条件
+   *
+   * IsA用于检测类是否继承了指定的类或接口，AnnotatedWith用于检测类是否添加了指定的注解
+   */
   @Test
   void findImplementationsWithNullPackageName() {
     ResolverUtil<VFS> resolverUtil = new ResolverUtil<>();

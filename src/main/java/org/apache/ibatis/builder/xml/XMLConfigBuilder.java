@@ -90,7 +90,9 @@ public class XMLConfigBuilder extends BaseBuilder {
     this.environment = environment;
     this.parser = parser;
   }
-
+  /**
+   *   解析mybatis-config.xml配置文件的入口
+   */
   public Configuration parse() {
     if (parsed) {
       throw new BuilderException("Each XMLConfigBuilder can only be used once.");
@@ -103,7 +105,9 @@ public class XMLConfigBuilder extends BaseBuilder {
   private void parseConfiguration(XNode root) {
     try {
       // issue #117 read properties first
+      // 解析properties
       propertiesElement(root.evalNode("properties"));
+      // 解析settings
       Properties settings = settingsAsProperties(root.evalNode("settings"));
       loadCustomVfs(settings);
       loadCustomLogImpl(settings);
